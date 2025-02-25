@@ -73,7 +73,7 @@ class shiftTest {
         Range negativeRange = new Range(-5, -1);
         Range shifted = Range.shift(negativeRange, 5, false);
 
-        assertEquals(0.0, shifted.getLowerBound());  // Ensures shift stops at zero
+        assertEquals(0.0, shifted.getLowerBound());
         assertEquals(0.0, shifted.getUpperBound());
     }
     

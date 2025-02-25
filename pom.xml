@@ -33,3 +33,6 @@
         </dependency>
     </dependencies>
 </project>
+<build>
+    <testSourceDirectory>FreeChart_A3/test</testSourceDirectory>
+</build>
