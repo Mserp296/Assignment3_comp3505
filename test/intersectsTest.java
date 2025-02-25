@@ -84,5 +84,8 @@ class intersectsTest {
         assertFalse(range.intersects(11, 20)); // Outside upper bound
     }
 
-    
+    @Test
+    void testIntersectsUpperBoundary() {
+        assertFalse(range.intersects(10, 10));
+    }
 }
