@@ -37,6 +37,27 @@ class shiftTest {
     }
 
     @Test
+    void testShiftWithAllowZeroCrossingUsingAssertAll() {
+        Range shifted = Range.shift(range, 7, true);
+        
+        assertAll(
+            () -> assertEquals(-3, shifted.getLowerBound()),
+            () -> assertEquals(17, shifted.getUpperBound())
+        );
+    }
+    
+    @Test
+    void testShiftTurnsNegativeRangePositive() {
+        Range negativeRange = new Range(-6, -2);
+        Range shifted = Range.shift(negativeRange, 10, false);
+
+        assertAll(
+            () -> assertEquals(4.0, shifted.getLowerBound()),
+            () -> assertEquals(8.0, shifted.getUpperBound())
+        );
+    }
+    
+    @Test
     void testShiftWithAllowZeroCrossing() {
         Range shifted = Range.shift(range, 5, true);
         assertEquals(-5, shifted.getLowerBound());
@@ -77,5 +98,13 @@ class shiftTest {
         assertEquals(0.0, shifted.getUpperBound());
     }
     
-    
+    @Test
+    void testShiftWithLargeValue() {
+        Range shifted = Range.shift(range, 1000, true);
+        
+        assertAll(
+            () -> assertEquals(990.0, shifted.getLowerBound()),
+            () -> assertEquals(1010.0, shifted.getUpperBound())
+        );
+    }
 }
