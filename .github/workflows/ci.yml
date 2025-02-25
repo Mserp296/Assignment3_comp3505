@@ -24,3 +24,7 @@ jobs:
       - name: Run JUnit Tests for Range.java
         run: mvn test --fail-at-end
 
+      - name: Build and Run Tests with Maven
+        run: |
+          mvn clean install
+          mvn test --fail-at-end
