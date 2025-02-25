@@ -153,7 +153,7 @@ class test {
     @Test
     void testConstructorThrowsExceptionForInvalidRange() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            new Range(10, -10); // Invalid: lower > upper
+            new Range(10, -10);
         });
         assertTrue(exception.getMessage().contains("require lower"));
     }
